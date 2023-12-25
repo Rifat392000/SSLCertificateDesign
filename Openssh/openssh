@@ -1,0 +1,22 @@
+#install
+sudo apt install openssh-server
+
+#configureation
+sudo gedit /etc/ssh/sshd_config
+
+sudo service ssh status
+sudo service ssh restart
+sudo service ssh status
+
+#client machine
+ssh rifat@192.168.56.5 -p 3000
+
+#copy file using ssh
+#syntax
+#scp -P port_number user@userAddress:copy_path destination_path
+
+scp -P 3000 rifat@192.168.56.5:/home/rifat/ca/generated/ca.crt /home/cse487/Downloads
+
+
+#copy directories
+scp -r -P 3000 rifat@192.168.56.5:/home/rifat/share /home/cse487/Downloads
