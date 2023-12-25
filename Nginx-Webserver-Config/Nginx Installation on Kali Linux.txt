@@ -28,7 +28,7 @@ cd /var/www
 
 #permission changes
 
-sudo chmod -R 777 ewubdserver
+sudo chmod -R 755 ewubdserver
 
 
 #gedit install
