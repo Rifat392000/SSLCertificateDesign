@@ -1,5 +1,7 @@
 #install
 sudo apt install openssh-server
+sudo service ssh start
+sudo service ssh enable
 
 #configureation
 sudo gedit /etc/ssh/sshd_config
