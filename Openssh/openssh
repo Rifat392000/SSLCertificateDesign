@@ -3,7 +3,7 @@ sudo apt install openssh-server
 sudo service ssh start
 sudo service ssh enable
 
-#configureation if needed in my case i changed the port number to 3000
+#configureation if needed in my case I changed the port number to 3000
 sudo gedit /etc/ssh/sshd_config
 
 sudo service ssh status
