@@ -1,4 +1,5 @@
-## Install the OpenSSH Server
+## Server 
+### Install the OpenSSH Server
 ```
 sudo apt install openssh-server
 ```
@@ -14,7 +15,7 @@ sudo service ssh enable
 ```
 sudo service ssh status
 ```
-## Configureation File OpenSSH Server
+### Configureation File OpenSSH Server
 > [!NOTE]
 > In my case I changed the default port number 22 to 3000
 ```
@@ -28,14 +29,22 @@ sudo service ssh restart
 ```
 sudo service ssh status
 ```
+> [!IMPORTANT]
+### IP address check
+```
+ip addr
+ifconfig
+```
 ## Client 
-
+### Connected to the server
 ```
 ssh rifat@192.168.56.5 -p 3000
 ```
+### Copy files
 ```
 scp -P 3000 rifat@192.168.56.5:/home/rifat/ca/generated/ca.crt /home/cse487/Downloads
 ```
+### Copy directories or folders
 ```
 scp -r -P 3000 rifat@192.168.56.5:/home/rifat/share /home/cse487/Downloads
 ```
