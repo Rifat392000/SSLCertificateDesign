@@ -29,18 +29,19 @@ sudo service ssh restart
 ```
 sudo service ssh status
 ```
-> [!IMPORTANT]
 ### IP address check
 ```
 ip addr
 ifconfig
 ```
-## Client 
-### Connected to the server
+## Client Machine
+### Connected to the server 
 ```
 ssh rifat@192.168.56.5 -p 3000
 ```
 ### Copy files
+>syntax
+>scp -P port_number user@userAddress:copy_path destination_path
 ```
 scp -P 3000 rifat@192.168.56.5:/home/rifat/ca/generated/ca.crt /home/cse487/Downloads
 ```
