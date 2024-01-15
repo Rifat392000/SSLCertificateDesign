@@ -16,7 +16,7 @@ mkdir -p ca/{root-ca,sub-ca,server}/{private,certs,index,serial,pem,crl,csr}
 ```
 cd ca
 ```
-
+>Secure private key directories with read/write/execute permissions for owner only
 ```
 chmod -v 700 {root-ca,sub-ca,server}/private
 ```
@@ -29,6 +29,7 @@ touch root-ca/index/index
 ```
 touch sub-ca/index/index
 ```
+>Generate random numbers for unique certificate serial numbers
 
 ```
 openssl rand -hex 16 > root-ca/serial/serial
@@ -447,42 +448,52 @@ DNS.2 = *.ewubdserver.com
 DNS.3 = www.ewubdserver.com
 
 ```
+>Generate a strong encryption key (4096 bits) for the Root CA
 
 ```
 openssl genrsa -aes256 -out root-ca/private/ca.key 4096
 ```
+>Generate a strong encryption key (4096 bits) for the Sub CA
 
 ```
 openssl genrsa -aes256 -out sub-ca/private/sub-ca.key 4096
 ```
+>Generate a strong encryption key (2048 bits) for the server
 
 ```
 openssl genrsa -out server/private/server.key 2048
 ```
+>Create a self-signed Root CA certificate valid for 20 years (7305 days)
 
 ```
 openssl req -config root-ca/root-ca.conf -key root-ca/private/ca.key -new -x509 -days 7305 -sha256 -extensions v3_ca -out root-ca/certs/ca.crt
 ```
+>Create a certificate signing request (CSR) for the Sub CA
 
 ```
 openssl req -config sub-ca/sub-ca.conf -new -key sub-ca/private/sub-ca.key -sha256 -out sub-ca/csr/sub-ca.csr
 ```
+>Sign the Sub CA CSR using the Root CA, creating a valid Sub CA certificate for one year (365 days)
 
 ```
 openssl ca -config root-ca/root-ca.conf -extensions v3_intermediate_ca -days 365 -notext -in sub-ca/csr/sub-ca.csr -out sub-ca/certs/sub-ca.crt
 ```
+>Create a CSR for the server
 
 ```
 openssl req -key server/private/server.key -new -sha256 -out server/csr/server.csr
 ```
+>Sign the server CSR using the Sub CA, creating a server certificate valid for one year (365 days)
 
 ```
 openssl ca -config sub-ca/sub-ca.conf -extensions server_cert -days 365 -notext -in server/csr/server.csr -out server/certs/server.crt
 ```
+>Create a PKCS#12 (PFX) bundle containing the server's certificate and private key for easy deployment
 
 ```
 openssl pkcs12 -inkey server/private/server.key -in server/certs/server.crt -export -out server/certs/server.pfx
 ```
+
 ```
 tree
 ```
@@ -490,6 +501,7 @@ tree
 ```
 mkdir generated
 ```
+>Organizing generated files
 
 ```
 cp root-ca/certs/ca.crt generated
@@ -508,10 +520,12 @@ cp server/certs/server.pfx generated
 ```
 cd generated
 ```
+> Move to the "generated" directory and combine the server, Sub CA, and Root CA certificates into a single file for easier installation
 
 ```
 cat server.crt sub-ca.crt ca.crt > chained.crt
 ```
+
 ```
 tree
 ```
