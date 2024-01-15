@@ -24,7 +24,8 @@ openssl rand -hex 16 > sub-ca/serial/serial
 ```
 gedit root-ca/root-ca.conf
 ```
-
+> [!IMPORTANT]
+>root-ca.conf
 ```
 #root-ca.conf
 [ca]
@@ -223,6 +224,8 @@ extendedKeyUsage  = serverAuth
 ```
 gedit sub-ca/sub-ca.conf
 ```
+> [!IMPORTANT]
+>sub-ca.conf
 
 ```
 #sub-ca.conf
@@ -458,9 +461,31 @@ openssl ca -config sub-ca/sub-ca.conf -extensions server_cert -days 365 -notext 
 ```
 
 ```
-
+openssl pkcs12 -inkey server/private/server.key -in server/certs/server.crt -export -out server/certs/server.pfx
 ```
 
 ```
+mkdir generated
+```
 
+```
+cp root-ca/certs/ca.crt generated
+cp sub-ca/certs/sub-ca.crt generated
+cp server/certs/server.crt generated
+```
+
+```
+cp server/private/server.key generated
+```
+
+```
+cp server/certs/server.pfx generated
+```
+
+```
+cd generated
+```
+
+```
+cat server.crt sub-ca.crt ca.crt > chained.crt
 ```
