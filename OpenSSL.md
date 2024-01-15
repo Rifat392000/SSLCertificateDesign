@@ -1,3 +1,4 @@
+>Install OpenSSL, Gedit and Tree
 ```
 sudo apt install openssl 
 ```
@@ -7,6 +8,7 @@ sudo apt install gedit
 ```
 sudo apt install tree
 ```
+>Setting up the directory structure
 
 ```
 mkdir -p ca/{root-ca,sub-ca,server}/{private,certs,index,serial,pem,crl,csr}
@@ -18,6 +20,7 @@ cd ca
 ```
 chmod -v 700 {root-ca,sub-ca,server}/private
 ```
+>Create empty files to track certificate issuance and serial numbers
 
 ```
 touch root-ca/index/index
