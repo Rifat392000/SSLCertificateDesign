@@ -35,11 +35,13 @@ openssl rand -hex 16 > root-ca/serial/serial
 openssl rand -hex 16 > sub-ca/serial/serial
 ```
 
+> [!IMPORTANT]
+>root-ca.conf 
+
 ```
 gedit root-ca/root-ca.conf
 ```
-> [!IMPORTANT]
->root-ca.conf 
+
 ```
 #root-ca.conf
 [ca]
@@ -235,11 +237,12 @@ extendedKeyUsage  = serverAuth
 
 ```
 
+> [!IMPORTANT]
+>sub-ca.conf 
+
 ```
 gedit sub-ca/sub-ca.conf
 ```
-> [!IMPORTANT]
->sub-ca.conf 
 
 ```
 #sub-ca.conf
