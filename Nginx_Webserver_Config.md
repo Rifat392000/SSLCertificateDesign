@@ -1,3 +1,4 @@
+```
 server {
     listen 80;
     listen [::]:80;
@@ -17,4 +18,4 @@ server {
         try_files $uri $uri/ =404;
     }
 }
-
+```
