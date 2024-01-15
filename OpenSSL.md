@@ -516,11 +516,12 @@ cp server/private/server.key generated
 ```
 cp server/certs/server.pfx generated
 ```
+> Move to the "generated" directory and combine the server, Sub CA, and Root CA certificates into a single file for easier installation
+
 
 ```
 cd generated
 ```
-> Move to the "generated" directory and combine the server, Sub CA, and Root CA certificates into a single file for easier installation
 
 ```
 cat server.crt sub-ca.crt ca.crt > chained.crt
