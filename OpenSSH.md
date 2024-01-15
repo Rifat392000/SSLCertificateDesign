@@ -15,7 +15,7 @@ sudo service ssh enable
 ```bash
 sudo service ssh status
 ```
-### Configureation file for OpenSSH server
+### Configuration file for OpenSSH server
 > [!NOTE]
 > In my case I changed the default port number 22 to 3000
 ```bash
