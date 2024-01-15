@@ -1,6 +1,20 @@
 ```
-mkdir -p {root-ca,sub-ca,server}/{private,certs,index,serial,pem,crl,csr}
+sudo apt install openssl 
 ```
+```
+sudo apt install gedit 
+```
+```
+sudo apt install tree
+```
+
+```
+mkdir -p ca/{root-ca,sub-ca,server}/{private,certs,index,serial,pem,crl,csr}
+```
+```
+cd ca
+```
+
 ```
 chmod -v 700 {root-ca,sub-ca,server}/private
 ```
@@ -25,7 +39,7 @@ openssl rand -hex 16 > sub-ca/serial/serial
 gedit root-ca/root-ca.conf
 ```
 > [!IMPORTANT]
->root-ca.conf
+>root-ca.conf File
 ```
 #root-ca.conf
 [ca]
@@ -225,7 +239,7 @@ extendedKeyUsage  = serverAuth
 gedit sub-ca/sub-ca.conf
 ```
 > [!IMPORTANT]
->sub-ca.conf
+>sub-ca.conf File
 
 ```
 #sub-ca.conf
