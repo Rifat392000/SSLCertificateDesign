@@ -1,5 +1,15 @@
 
+```bash
+zone "ewubdserver.com" IN {
+	type master;
+	file "/etc/bind/db.ewubdserver.com";
+};
+zone "56.168.192.in-addr.arpa" IN {
+	type master;
+	file "/etc/bind/db.56.168.192";
+};
 
+```
 
 >named.conf.options
 ```bash
