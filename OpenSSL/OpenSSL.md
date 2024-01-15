@@ -480,6 +480,9 @@ openssl ca -config sub-ca/sub-ca.conf -extensions server_cert -days 365 -notext 
 ```
 openssl pkcs12 -inkey server/private/server.key -in server/certs/server.crt -export -out server/certs/server.pfx
 ```
+```
+tree
+```
 
 ```
 mkdir generated
@@ -505,4 +508,7 @@ cd generated
 
 ```
 cat server.crt sub-ca.crt ca.crt > chained.crt
+```
+```
+tree
 ```
