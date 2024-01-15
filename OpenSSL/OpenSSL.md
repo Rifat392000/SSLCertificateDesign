@@ -39,7 +39,7 @@ openssl rand -hex 16 > sub-ca/serial/serial
 gedit root-ca/root-ca.conf
 ```
 > [!IMPORTANT]
->root-ca.conf File
+>root-ca.conf 
 ```
 #root-ca.conf
 [ca]
@@ -239,7 +239,7 @@ extendedKeyUsage  = serverAuth
 gedit sub-ca/sub-ca.conf
 ```
 > [!IMPORTANT]
->sub-ca.conf File
+>sub-ca.conf 
 
 ```
 #sub-ca.conf
