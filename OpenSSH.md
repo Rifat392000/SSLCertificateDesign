@@ -34,7 +34,7 @@ sudo service ssh status
 ip addr
 ifconfig
 ```
-## Client Machine
+## Client 
 ### Connected to the server 
 ```
 ssh rifat@192.168.56.5 -p 3000
