@@ -526,6 +526,9 @@ cd generated
 ```
 cat server.crt sub-ca.crt ca.crt > chained.crt
 ```
+```
+sudo chmod 700 server.key server.pfx
+```
 
 ```
 tree
