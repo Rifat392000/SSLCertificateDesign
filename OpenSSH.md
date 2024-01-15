@@ -1,5 +1,5 @@
 ## Server 
-### Install the OpenSSH Server
+### Install the OpenSSH server
 ```
 sudo apt install openssh-server
 ```
@@ -15,7 +15,7 @@ sudo service ssh enable
 ```
 sudo service ssh status
 ```
-### Configureation file for OpenSSH Server
+### Configureation file for OpenSSH server
 > [!NOTE]
 > In my case I changed the default port number 22 to 3000
 ```
