@@ -3,11 +3,13 @@
 ```bash
 sudo apt install ufw
 ```
+> [!NOTE]
 >Sets the default policy for outgoing traffic to "allow," permitting any outgoing connections
 
 ```bash
 sudo ufw default allow outgoing
 ```
+> [!NOTE]
 >Sets the default policy for incoming traffic to "deny," blocking all incoming connections unless explicitly allowed
 
 ```bash
