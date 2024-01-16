@@ -1,3 +1,5 @@
+# Bind9 DNS Server
+
 ```bash
 sudo apt update
 sudo apt install bind9
