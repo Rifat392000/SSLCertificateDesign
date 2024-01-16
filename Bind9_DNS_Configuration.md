@@ -12,12 +12,14 @@ cd /etc/bind
 tree
 ```
 
+> [!TIP]
 > Back up original configuration files (recommended)
 ```bash
 sudo cp named.conf.options named.conf.options.original
 sudo cp named.conf.local named.conf.local.original
 ```
 
+> [!TIP]
 >Create copies of zone files
 ```bash
 sudo cp db.local db.ewubdserver.com
@@ -28,6 +30,8 @@ sudo cp db.127 db.56.168.192
 ```bash
 sudo gedit named.conf.options
 ```
+
+> [!IMPORTANT]
 >named.conf.options
 ```bash
 options {
