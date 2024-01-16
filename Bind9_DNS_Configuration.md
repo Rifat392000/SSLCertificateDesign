@@ -68,7 +68,7 @@ options {
 ```bash
 sudo gedit named.conf.local
 ```
-
+> [!IMPORTANT]
 >named.conf.local
 ```bash
 zone "ewubdserver.com" IN {
@@ -86,7 +86,7 @@ zone "56.168.192.in-addr.arpa" IN {
 ```bash
 sudo gedit db.ewubdserver.com
 ```
-
+> [!IMPORTANT]
 >db.ewubdserver.com
 ```bash
 ;
@@ -119,6 +119,7 @@ named-checkzone ewubdserver.com db.ewubdserver.com
 sudo gedit db.56.168.192
 ```
 
+> [!IMPORTANT]
 >db.56.168.192
 ```bash
 ;
@@ -163,7 +164,7 @@ sudo systemctl status named
 ```bash
 sudo gedit /etc/resolv.conf
 ```
-
+> [!IMPORTANT]
 >resolv.conf
 ```bash
 nameserver 192.168.56.5
