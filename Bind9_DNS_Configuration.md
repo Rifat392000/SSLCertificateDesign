@@ -1,17 +1,28 @@
 ```bash
-cd /etc/bind
+sudo apt update
+sudo apt install bind9
 ```
 
+```bash
+cd /etc/bind
+```
+```bash
+tree
+```
+
+> Back up original configuration files (recommended)
 ```bash
 sudo cp named.conf.options named.conf.options.original
 sudo cp named.conf.local named.conf.local.original
 ```
 
+>Create copies of zone files
 ```bash
 sudo cp db.local db.ewubdserver.com
 sudo cp db.127 db.56.168.192
 ```
 
+> Edit global options file
 ```bash
 sudo gedit named.conf.options
 ```
@@ -51,7 +62,7 @@ options {
 };
 ```
 
-
+>Edit local zone definitions file
 ```bash
 sudo gedit named.conf.local
 ```
@@ -69,7 +80,7 @@ zone "56.168.192.in-addr.arpa" IN {
 };
 ```
 
-
+>Edit forward zone file
 ```bash
 sudo gedit db.ewubdserver.com
 ```
@@ -101,7 +112,7 @@ mail    IN      A       192.168.56.5
 named-checkzone ewubdserver.com db.ewubdserver.com
 ```
 
-
+>Edit reverse zone file
 ```bash
 sudo gedit db.56.168.192
 ```
@@ -130,7 +141,7 @@ $TTL	604800
 named-checkzone 56.168.192.in-addr.arpa db.56.168.192
 ```
 
-
+>Manage the BIND service
 ```bash
 sudo systemctl status named
 ```
@@ -146,7 +157,7 @@ sudo systemctl enable named
 ```bash
 sudo systemctl status named
 ```
-
+>Configure local resolver
 ```bash
 sudo gedit /etc/resolv.conf
 ```
@@ -160,6 +171,7 @@ nameserver 192.168.56.5
 sudo systemctl restart named
 ```
 
+>Test DNS resolution
 ```bash
 nslookup www.ewubdserver.com
 ```
