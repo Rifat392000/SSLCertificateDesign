@@ -1,5 +1,5 @@
 # Linux Version Check
-> [!NOTE]
+>[!NOTE]
 ```bash
 uname -a
 ```
