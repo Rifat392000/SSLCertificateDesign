@@ -178,6 +178,7 @@ nameserver 192.168.56.5
 sudo systemctl restart named
 ```
 
+> [!TIP]
 >Test DNS resolution
 ```bash
 nslookup www.ewubdserver.com
