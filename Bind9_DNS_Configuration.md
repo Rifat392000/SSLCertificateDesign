@@ -1,16 +1,20 @@
-
 ```bash
-zone "ewubdserver.com" IN {
-	type master;
-	file "/etc/bind/db.ewubdserver.com";
-};
-zone "56.168.192.in-addr.arpa" IN {
-	type master;
-	file "/etc/bind/db.56.168.192";
-};
-
+cd /etc/bind
 ```
 
+```bash
+sudo cp named.conf.options named.conf.options.original
+sudo cp named.conf.local named.conf.local.original
+```
+
+```bash
+sudo cp db.local db.ewubdserver.com
+sudo cp db.127 db.56.168.192
+```
+
+```bash
+sudo gedit named.conf.options
+```
 >named.conf.options
 ```bash
 options {
@@ -47,6 +51,29 @@ options {
 };
 ```
 
+
+```bash
+sudo gedit named.conf.local
+```
+
+>named.conf.local
+```bash
+zone "ewubdserver.com" IN {
+    type master;
+    file "/etc/bind/db.ewubdserver.com";
+};
+
+zone "56.168.192.in-addr.arpa" IN {
+    type master;
+    file "/etc/bind/db.56.168.192";
+};
+```
+
+
+```bash
+sudo gedit db.ewubdserver.com
+```
+
 >db.ewubdserver.com
 ```bash
 ;
@@ -69,6 +96,16 @@ mail    IN      A       192.168.56.5
 @	IN	AAAA	::1
 ```
 
+
+```bash
+named-checkzone ewubdserver.com db.ewubdserver.com
+```
+
+
+```bash
+sudo gedit db.56.168.192
+```
+
 >db.56.168.192
 ```bash
 ;
@@ -87,4 +124,42 @@ $TTL	604800
 24	IN	PTR	www.ewubdserver.com.
 24	IN	PTR	ftp.ewubdserver.com.
 24	IN	PTR	mail.ewubdserver.com.
+```
+
+```bash
+named-checkzone 56.168.192.in-addr.arpa db.56.168.192
+```
+
+
+```bash
+sudo systemctl status named
+```
+
+```bash
+sudo systemctl start named
+```
+
+```bash
+sudo systemctl enable named
+```
+
+```bash
+sudo systemctl status named
+```
+
+```bash
+sudo gedit /etc/resolv.conf
+```
+
+>resolv.conf
+```bash
+nameserver 192.168.56.5
+```
+
+```bash
+sudo systemctl restart named
+```
+
+```bash
+nslookup www.ewubdserver.com
 ```
