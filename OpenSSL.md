@@ -525,7 +525,7 @@ cd generated
 ```
 
 > [!WARNING]
->combine the server, Sub CA, and Root CA certificates into a single file 
+>combine the server, Sub CA, and Root CA certificates into a single file [Certificate Trust Chaining]
 ```bash
 cat server.crt sub-ca.crt ca.crt > chained.crt
 ```
