@@ -42,6 +42,7 @@ ssh rifat@192.168.56.5 -p 3000
 ```
 ### Copy files
 ***syntax***
+> [!IMPORTANT]
 >scp -P port_number ServerName@ServerAddress:copy_path  destination_path
 ```bash
 scp -P 3000 rifat@192.168.56.5:/home/rifat/ca/generated/ca.crt /home/cse487/Downloads
