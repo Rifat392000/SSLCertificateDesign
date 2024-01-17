@@ -37,6 +37,7 @@ cd ~
 ```bash
 cd /var/www
 ```
+> [!IMPORTANT]
 >Change the permission
 
 ```bash
