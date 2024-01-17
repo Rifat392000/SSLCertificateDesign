@@ -55,7 +55,8 @@ sudo rm default
 ```bash
 sudo gedit ewubdserver
 ```
-
+>[!IMPORTANT]
+>Customize by your specific needs
 ```bash
 server {
     listen 80;
