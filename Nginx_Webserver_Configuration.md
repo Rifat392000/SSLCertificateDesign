@@ -23,6 +23,7 @@ sudo systemctl start nginx
 ```bash
 sudo systemctl status nginx
 ```
+> [!IMPORTANT]
 >Copy ewubdserver website to the /var/www
 
 ```bash
