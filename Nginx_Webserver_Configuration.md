@@ -83,7 +83,7 @@ sudo service nginx restart
 ```bash
 sudo systemctl status nginx
 ```
-
+> [!NOTE]
 >If you want to turn off the service, use this command
 
 
